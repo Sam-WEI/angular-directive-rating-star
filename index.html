@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="app.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <style>
+    .wrapper{
+      margin: auto;
+      width: 300px;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrapper gooroo-star{
+      border: 1px solid red;
+      height: 40px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div ng-controller="GreetingController">
+    <div class="wrapper">
+      <gooroo-star gooroo-star ng-repeat="n in [] | range: 11" rating="{{ n/2 }}"></gooroo-star>
+    </div>
+    
+    
+  </div>
+</body>
+
+</html>
