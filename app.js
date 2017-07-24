@@ -65,7 +65,7 @@ myApp.directive('goorooRating', ['$document', function($document) {
     var w = imageWidth * ratio;
     var h = imageHeight * ratio;
 
-    var rating = round2Half(attr.rating) || 0;
+    var rating = round2Half(scope.rating) || 0;
 
     if(rating < 0) {
       rating = 0;
@@ -101,6 +101,9 @@ myApp.directive('goorooRating', ['$document', function($document) {
   return {
     template: '',
     transclude: false,
+    scope: {
+      rating: '@'
+    },
     link: link
   };
 }]);
