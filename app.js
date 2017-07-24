@@ -44,7 +44,7 @@ myApp.directive('goorooRating', ['$document', function($document) {
     var realWidth = elem[0].clientWidth;
     var realHeight = elem[0].clientHeight;
 
-    console.log("realWidth: " + realWidth + "  realHeight: " + realHeight);
+    // console.log("realWidth: " + realWidth + "  realHeight: " + realHeight);
 
     if(realWidth === 0 && realHeight === 0) {
       realWidth = originalWidth;
@@ -58,7 +58,7 @@ myApp.directive('goorooRating', ['$document', function($document) {
     }
 
     var ratio = realWidth / originalWidth;
-    console.log("realWidth: " + realWidth + "  realHeight: " + realHeight + "   ratio: " + ratio);
+    // console.log("realWidth: " + realWidth + "  realHeight: " + realHeight + "   ratio: " + ratio);
 
     console.log(elem[0].clientWidth + ', ' + elem[0].clientHeight);
     
@@ -73,8 +73,7 @@ myApp.directive('goorooRating', ['$document', function($document) {
       rating = 5;
     }
 
-    console.log(attr.rating + ":::::::::::::::" + rating);
-
+    
     var xOffset = 0, yOffset = 0;
 
     if(rating === parseInt(rating)) {
