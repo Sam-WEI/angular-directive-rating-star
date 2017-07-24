@@ -22,17 +22,24 @@ myApp.directive('goorooStar', ['$document', function($document) {
     return Math.round(double) / 2;
   }
 
-  var fullStarOriginX = -5;
-  var fullStarOriginY = -396;
+  // init
+  var imageWidth = 218;
+  var imageHeight = 45;
 
-  var halfStarOriginX = -205;
-  var halfStarOriginY = -396;
+  var originalWidth = 218 / 2;
+  var originalHeight = 21;
+
+  var singleStarWidth = 22;
+
+  var fullStarOriginX = 0;
+  var fullStarOriginY = 0;
+
+  var halfStarOriginX = 0;
+  var halfStarOriginY = -25;
+  // init 
 
   function link(scope, elem, attr) {
-    
 
-    var originalWidth = 191 / 2;
-    var originalHeight = 20;
 
     var realWidth = elem[0].clientWidth;
     var realHeight = elem[0].clientHeight;
@@ -55,8 +62,8 @@ myApp.directive('goorooStar', ['$document', function($document) {
 
     console.log(elem[0].clientWidth + ', ' + elem[0].clientHeight);
     
-    var w = 400 * ratio;
-    var h = 700 * ratio;
+    var w = imageWidth * ratio;
+    var h = imageHeight * ratio;
 
     var rating = round2Half(attr.rating) || 0;
 
@@ -71,11 +78,11 @@ myApp.directive('goorooStar', ['$document', function($document) {
     var xOffset = 0, yOffset = 0;
 
     if(rating === parseInt(rating)) {
-      xOffset = fullStarOriginX - (5 - rating) * 19;
+      xOffset = fullStarOriginX - (5 - rating) * singleStarWidth;
       yOffset = fullStarOriginY;
     }
     else {
-      xOffset = halfStarOriginX - (5 - rating - 0.5) * 19;
+      xOffset = halfStarOriginX - (5 - rating - 0.5) * singleStarWidth;
       yOffset = halfStarOriginY;
     }
 
@@ -83,9 +90,10 @@ myApp.directive('goorooStar', ['$document', function($document) {
     var oy = yOffset * ratio;
 
     elem.css({
+      boxSizing: 'content-box',
       width: realWidth + 'px',
       height: realHeight + 'px',
-      background: 'url(stars.png) no-repeat left top',
+      background: 'url(rating-stars.png) no-repeat left top',
       backgroundSize: w + 'px ' + h + 'px',
       backgroundPosition: ox + 'px ' + oy + 'px',
     })
