@@ -18,7 +18,11 @@
       justify-content: center;
     }
 
-    .wrapper gooroo-star{
+    .wrapper gooroo-rating{
+      height: 40px;
+    }
+
+    .wrapper div{
       height: 40px;
     }
   </style>
@@ -28,7 +32,7 @@
 <body>
   <div ng-controller="GreetingController">
     <div class="wrapper">
-      <gooroo-star gooroo-star ng-repeat="n in [] | range: 11" rating="{{ n/2 }}"></gooroo-star>
+      <gooroo-rating ng-repeat="n in [] | range: 11" rating="{{ n/2 }}"></gooroo-rating>
     </div>
     
     

@@ -15,7 +15,7 @@ myApp.filter('range', function() {
 });
 
 
-myApp.directive('goorooStar', ['$document', function($document) {
+myApp.directive('goorooRating', ['$document', function($document) {
   function round2Half(rating) {
     var r = Number(rating);
     var double = r * 2;    
